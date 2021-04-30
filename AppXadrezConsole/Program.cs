@@ -8,9 +8,8 @@ namespace AppXadrezConsole
     {
         static void Main(string[] args)
         {
-            Posicao P;
-
-            Tabuleiro tab = new Tabuleiro(8,8);
+            Tabuleiro tab = new Tabuleiro(8, 8); // Instanciando o tabuleiro de tamanho 8x8.
+            Tela.imprimirTabuleiro(tab);
         }
     }
 }
