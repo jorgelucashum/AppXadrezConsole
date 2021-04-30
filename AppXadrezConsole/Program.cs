@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Tabuleiro;
+using tabuleiro;
 
 namespace AppXadrezConsole
 {
@@ -10,8 +10,7 @@ namespace AppXadrezConsole
         {
             Posicao P;
 
-            P = new Posicao(3, 4); // Testando posição.
-            Console.WriteLine(P);
+            Tabuleiro tab = new Tabuleiro(8,8);
         }
     }
 }
