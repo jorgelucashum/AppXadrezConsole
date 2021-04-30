@@ -10,7 +10,7 @@ namespace AppXadrezConsole
         {
             Posicao P;
 
-            P = new Posicao(3, 4);
+            P = new Posicao(3, 4); // Testando posição.
             Console.WriteLine(P);
         }
     }
