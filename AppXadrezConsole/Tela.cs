@@ -13,7 +13,7 @@ namespace AppXadrezConsole
             {
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if (tab.peca(i, j) == null) // Se a peça não tiver recebido um valor será mostrado um '-'.
+                    if (tab.peca(i, j) == null)
                     {
                         Console.Write("-  ");
                     }
