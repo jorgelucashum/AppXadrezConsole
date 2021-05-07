@@ -19,7 +19,7 @@ namespace AppXadrezConsole
                     }
                     else
                     {
-                        Console.Write(tab.peca(i, j) + "  "); // Usando o método do objeto tab para ter acesso as informações da 'peca'.
+                        Console.Write(tab.peca(i, j) + "  "); // Usando o método do objeto 'tab' para ter acesso as informações da 'peca'.
                     } 
                 }
                 Console.WriteLine(""); //Pular para a linha abaixo após percorrer toda a coluna de uma linha.
