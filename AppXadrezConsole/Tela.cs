@@ -1,4 +1,5 @@
 ﻿using System;
+using xadrez;
 
 using tabuleiro;
 
@@ -27,6 +28,16 @@ namespace AppXadrezConsole
                 Console.WriteLine(""); //Pular para a linha abaixo após percorrer toda a coluna de uma linha.
             }
             Console.WriteLine("   a  b  c  d  e  f  g  h"); // Inserindo identificadores das colunas.
+
+
+        }
+
+        public static PosicaoXadrez lerPosicaoXadrez() // Método para ler a entrada do usuário.
+        {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + ""); // trasnformar em string
+            return new PosicaoXadrez(coluna, linha);
 
 
         }
