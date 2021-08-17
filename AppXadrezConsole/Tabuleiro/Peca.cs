@@ -1,7 +1,7 @@
-﻿
+﻿ 
 namespace tabuleiro
 {
-    class Peca // Clase genérica.
+    abstract class Peca // Clase genérica.
     {
         public Posicao posicao { get; set; }
         public Cor cor { get; protected set; }
@@ -20,6 +20,8 @@ namespace tabuleiro
         {
             qntMovimentos++;
         }
+
+        public abstract bool[,] movimentosPossiveis();
 
     }
 }
