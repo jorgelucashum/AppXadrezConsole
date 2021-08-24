@@ -15,22 +15,42 @@ namespace AppXadrezConsole
                 Console.Write(tab.linhas - i + "  "); // Enumarando as linhas ao lado.
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if (tab.peca(i, j) == null) // Se a peça não tiver recebido um valor será mostrado um '-'.
+                    imprimirPeca(tab.peca(i, j)); // Usando o método do objeto 'tab' para ter acesso as informações da 'peca'.        
+                }
+                Console.WriteLine(""); //Pular para a linha abaixo após percorrer toda a coluna de uma linha.
+            }
+            Console.WriteLine("   a  b  c  d  e  f  g  h"); // Inserindo identificadores das colunas.
+        }
+
+        public static void imprimirTabuleiro(Tabuleiro tab, bool[,] posicoePossiveis) // Sobrecarga para receber 'posicoesPossiveis' como 
+        {
+            //Variáveis com a cor de fundo do console
+            ConsoleColor fundoOriginal = Console.BackgroundColor;
+            ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
+
+            for (int i = 0; i < tab.linhas; i++)
+            {
+                Console.Write(tab.linhas - i + "  "); // Enumerando as linhas ao lado.
+                for (int j = 0; j < tab.colunas; j++)
+                {
+                    if (posicoePossiveis[i, j])//Destacar as posições possíveis das peças quando selecionadas
                     {
-                        Console.Write("-  ");
+                        Console.BackgroundColor = fundoAlterado;
                     }
                     else
                     {
-                        imprimirPeca(tab.peca(i, j)); // Usando o método do objeto 'tab' para ter acesso as informações da 'peca'.
-                        Console.Write("  ");
-                    }            
+                        Console.BackgroundColor = fundoOriginal;
+                    }
+                    imprimirPeca(tab.peca(i, j)); // Usando o método do objeto 'tab' para ter acesso as informações da 'peca'.   
+                    Console.BackgroundColor = fundoOriginal;
                 }
                 Console.WriteLine(""); //Pular para a linha abaixo após percorrer toda a coluna de uma linha.
             }
             Console.WriteLine("   a  b  c  d  e  f  g  h"); // Inserindo identificadores das colunas.
 
-
+            Console.BackgroundColor = fundoOriginal; //Garantir que o fundo da tela volte a cor original
         }
+
 
         public static PosicaoXadrez lerPosicaoXadrez() // Método para ler a entrada do usuário.
         {
@@ -44,16 +64,25 @@ namespace AppXadrezConsole
 
         public static void imprimirPeca(Peca peca)
         {
-            if (peca.cor == Cor.Branca)
+            if (peca == null)
             {
-                Console.Write(peca);
+                Console.Write("-  ");
             }
             else
             {
+
+             if (peca.cor == Cor.Branca)
+                {
+                Console.Write(peca);
+                }
+             else
+             {
                 ConsoleColor aux = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(peca);
                 Console.ForegroundColor = aux;
+              }
+                Console.Write("  ");
             }
         }
     }
